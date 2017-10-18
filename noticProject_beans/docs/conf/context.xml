@@ -1,0 +1,18 @@
+<!-- c:\Tomcat\conf\context.xml  use: Tomcat 5.5.x  -->
+
+<Context >
+		<Resource name="jdbc/Oracle" 
+		auth="Container"
+		type="javax.sql.DataSource" 
+		scope="Shareable" 
+		username="hr"
+		password="tiger"
+		driverClassName="oracle.jdbc.driver.OracleDriver"
+		url="jdbc:oracle:thin:@127.0.0.1:1521:XE"
+		maxActive="3"
+		maxIdle="3"
+		maxWait="-1" 
+		removeAbandoned="true" 
+		logAbandoned="true" 
+		removeAbandonedTimeout="300" />
+</Context>

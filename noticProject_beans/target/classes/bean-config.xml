@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	<bean id="dao" class="notice.model.Factory" factory-method="getInstance">
+		<constructor-arg>
+			<map>
+				<entry key="driver" value="oracle.jdbc.driver.OracleDriver"/>
+				<entry key="url">
+					<value>jdbc:oracle:thin:@localhost:1521:XE</value>
+				</entry>
+				<entry key="username">
+					<value>hr</value>
+				</entry>
+				<entry key="password">
+					<value>tiger</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="loginDao" class="notice.model.LoginDao" factory-method="getInstance">
+		<property name="factory" ref="dao"/>
+	</bean>
+	
+	<bean id="loginService" class="notice.service.LoginService">
+	</bean>
+	
+	
+	<bean id="loginAction" class="notice.controller.LoginAction">
+	</bean>
+	
+	<bean id="noticeDao" class="notice.model.NoticeDao" factory-method="getInstance">
+		<property name="factory" ref="dao"/>
+	</bean>
+	
+	<bean id="contorlAction" class="notice.controller.ControllerAction" >
+	</bean>
+</beans>
